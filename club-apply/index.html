@@ -1,9 +1,92 @@
+2704933700: 09-05 20:14:28
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>学生社团报名登记表</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>学生社团报名</h1>
+        <p>欢迎报名校园兴趣社团，请如实填写信息</p>
+    </header>
+    <nav>
+        <a href="#tip">报名须知</a>
+        <a href="#apply">报名表单</a>
+    </nav>
+    <main>
+        <section id="tip">
+            <h2>报名须知</h2>
+            <p>本次面向全体在校学生，提交后社团负责人会联系你。带*为必填项目。</p>
+        </section>
+
+        <section id="apply">
+            <h2>报名表单</h2>
+            <form action="#" method="get">
+                <p>
+                    <label for="stuName">姓名 *</label>
+                    <input type="text" id="stuName" name="stuName" placeholder="请输入你的姓名" required maxlength="10">
+                </p>
+                <p>
+                    <label for="stuMail">邮箱 *</label>
+                    <input type="email" id="stuMail" name="stuMail" placeholder="example@shturl." required>
+                </p>
+                <p>
+                    <label for="stuPwd">社团登录密码 *</label>
+                    <input type="password" id="stuPwd" name="stuPwd" placeholder="6‑12位数字字母" required pattern="[0-9a-zA-Z]{6,12}">
+                </p>
+                <p>
+                    <label for="birth">出生日期</label>
+                    <input type="date" id="birth" name="birth">
+                </p>
+                <p>性别</p>
+                <p>
+                    <label><input type="radio" name="gender" value="male"> 男</label>
+                    <label><input type="radio" name="gender" value="female"> 女</label>
+                </p>
+                <p>意向社团（可多选）</p>
+                <p>
+                    <label><input type="checkbox" name="club" value="basketball">篮球社</label>
+                    <label><input type="checkbox" name="club" value="music">音乐社</label>
+                    <label><input type="checkbox" name="club" value="program">编程社</label>
+                </p>
+                <p>
+                    <label for="grade">年级 *</label>
+                    <select id="grade" name="grade" required>
+                        <option value="">请选择年级</option>
+                        <option value="1">大一</option>
+                        <option value="2">大二</option>
+                        <option value="3">大三</option>
+                        <option value="4">大四</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="selfIntro">个人特长介绍</label><br>
+                    <textarea id="selfIntro" name="selfIntro" rows="4" maxlength="200" placeholder="简单说说你的特长，最多200字"></textarea>
+                </p>
+                <p>
+                    <button type="submit">提交报名</button>
+                </p>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>校园社团管理系统 · 报名采集页</p>
+    </footer>
+</body>
+</html>
+
+
+2704933700: 09-05 20:14:28
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生社团报名登记表</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
