@@ -3,43 +3,28 @@
 <head>
     <meta charset="UTF‑8">
     <meta name="viewport" content="width=device‑width, initial‑scale=1.0">
-    <title>课程页面</title>
-    <!-- 第四次新增：引入Bootstrap CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="courses.css">
+    <title>昆明美食地图</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 导航栏 -->
-    <header class="nav‑bar">
-        <div class="logo">我的课程</div>
-        <nav class="nav‑links">
-            <a href="#">首页</a>
-            <a href="#">课程</a>
-            <a href="#">关于</a>
-            <a href="#">联系</a>
+    <header class="header-nav">
+        <div class="brand">昆明美食地图</div>
+        <nav class="nav-menu">
+            <a href="#home">首页</a>
+            <a href="#food">美食推荐</a>
+            <a href="#intro">简介</a>
         </nav>
     </header>
 
-    <!-- Grid卡片墙 -->
     <main>
-        <div class="card‑grid">
-            <article class="course‑card">
-                <!-- 第四次：增加card‑title类，用于样式覆盖 -->
-                <h3 class="card‑title">HTML 入门</h3>
-                <p>结构与语义，页面一切的起点。</p>
-                <a href="#" class="card-btn">查看详情</a>
-            </article>
-            <article class="course‑card">
-                <h3 class="card‑title">CSS 布局</h3>
-                <p>Flex、Grid 与响应式设计。</p>
-                <a href="#" class="card-btn">查看详情</a>
-            </article>
-            <article class="course‑card">
-                <h3 class="card‑title">JavaScript 基础</h3>
-                <p>让页面动起来的第一门语言。</p>
-                <a href="#" class="card-btn">查看详情</a>
-            </article>
-        </div>
+        <section class="banner">
+            <h1>舌尖上的昆明</h1>
+            <p>感受云南春城地道烟火风味</p>
+        </section>
     </main>
+
+    <footer class="page-footer">
+        <p>响应式专题页面作业</p>
+    </footer>
 </body>
 </html>

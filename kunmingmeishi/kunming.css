@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Microsoft Yahei",sans‑serif;
+    line‑height: 1.6;
+    color: #333;
+}
+
+/* 导航栏 Flex布局 ——第1次提交内容 */
+.header‑nav {
+    display: flex;
+    justify‑content: space‑between;
+    align‑items: center;
+    padding: 16px 20px;
+    max‑width: 1100px;
+    margin: 0 auto;
+}
+.brand {
+    font‑size: 22px;
+    font‑weight: bold;
+    color: #c82423;
+}
+.nav‑menu {
+    display: flex;
+    gap: 24px;
+    flex‑wrap: wrap;
+}
+.nav‑menu a {
+    text‑decoration: none;
+    color: #333;
+}
+.nav‑menu a:hover {
+    color: #c82423;
+}
+
+.banner {
+    text‑align: center;
+    padding: 40px 16px;
+    background‑color: #fff2f2;
+}
+.banner h1 {
+    margin‑bottom: 8px;
+}
+
+/* Grid卡片墙，6张卡片 ——第2次提交内容 */
+.food‑card‑wall {
+    max‑width: 1100px;
+    margin: 40px auto;
+    padding: 0 16px;
+    display: grid;
+    grid‑template‑columns: repeat(auto‑fit, minmax(260px,1fr));
+    gap: 20px;
+}
+.food‑card {
+    border: 1px solid #eee;
+    border‑radius: 10px;
+    padding: 20px;
+    box‑shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: 0.3s;
+}
+.food‑card:hover {
+    transform: translateY(-4px);
+    box‑shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.intro‑section {
+    max‑width: 1100px;
+    margin: 40px auto;
+    padding: 0 16px;
+}
+.page‑footer {
+    text‑align: center;
+    padding: 24px;
+    background‑color: #f5f5f5;
+    margin‑top: 40px;
+}
+
+/* 媒体查询断点，响应式适配 ——第3次提交内容 */
+@media (max‑width:768px) {
+    .header‑nav {
+        flex‑direction: column;
+        gap:12px;
+    }
+}
+@media (min‑width:992px) {
+    .food‑card {
+        padding:26px;
+    }
+}
