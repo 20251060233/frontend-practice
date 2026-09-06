@@ -9,7 +9,6 @@ body {
     color: #333;
 }
 
-/* Flex导航栏 */
 .header-nav {
     display: flex;
     justify-content: space-between;
@@ -43,6 +42,33 @@ body {
 }
 .banner h1 {
     margin-bottom: 8px;
+}
+
+/* 第二次新增 Grid卡片墙 */
+.food-card-wall {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+    gap: 20px;
+}
+.food-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: 0.3s;
+}
+.food-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.intro-section {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 16px;
 }
 
 .page-footer {
