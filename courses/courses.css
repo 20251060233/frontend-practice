@@ -1,26 +1,44 @@
-* {
-    box‑sizing: border‑box;
-}
-body {
-    font‑family: "Microsoft YaHei", sans‑serif;
-    margin: 0;
-    color: #333;
-}
-.nav‑wrap {
-    max‑width: 960px;
-    margin: 0 auto;
-    padding: 12px 16px;
+*.nav‑bar {
     display: flex;
     justify‑content: space‑between;
     align‑items: center;
-    flex‑wrap: wrap;
-    gap: 8px;
+    padding: 16px;
+    max‑width: 960px;
+    margin: 0 auto;
 }
-.main‑nav {
+.logo {
+    font‑size: 20px;
+    font‑weight: bold;
+}
+.nav‑links {
     display: flex;
-    gap:16px;
+    gap: 20px;
+    flex‑wrap: wrap;
 }
-.main‑nav a {
+.nav‑links a {
     text‑decoration: none;
-    color:#0d6efd;
+    color: #333;
+}
+
+/* Grid卡片墙 第二次提交新增 */
+.card‑grid {
+    max‑width: 960px;
+    margin: 0 auto;
+    padding: 16px;
+    display: grid;
+    grid‑template‑columns: repeat(auto‑fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.course‑card {
+    border: 1px solid #dee2e6;
+    border‑radius: 8px;
+    padding: 16px;
+}
+
+/* 媒体查询断点 */
+@media (min‑width: 992px) {
+    .course‑card {
+        padding: 24px;
+    }
 }

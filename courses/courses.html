@@ -3,31 +3,40 @@
 <head>
     <meta charset="UTF‑8">
     <meta name="viewport" content="width=device‑width, initial‑scale=1.0">
-    <title>课程展示</title>
-    <link rel="stylesheet" href="css/courses.css">
+    <title>课程页面</title>
+    <link rel="stylesheet" href="courses.css">
 </head>
 <body>
-<header class="site‑header">
-    <div class="nav‑wrap">
-        <a class="logo" href=" ">前端课程墙</a >
-        <nav class="main‑nav">
-            <a href="#courses">全部课程</a >
-            <a href="#about">关于</a >
+    <!-- 导航栏 -->
+    <header class="nav‑bar">
+        <div class="logo">我的课程</div>
+        <nav class="nav‑links">
+            <a href=" ">首页</a >
+            <a href="#">课程</a >
+            <a href="#">关于</a >
+            <a href="#">联系</a >
         </nav>
-    </div>
-</header>
+    </header>
 
-<main>
-    <section id="courses">
-        <h2>全部课程</h2>
+    <!-- Grid卡片墙 -->
+    <main>
         <div class="card‑grid">
-            <!-- 卡片下一步填 -->
+            <article class="course‑card">
+                <h3>HTML 入门</h3>
+                <p>结构与语义，页面一切的起点。</p >
+                <a href="#">查看详情</a >
+            </article>
+            <article class="course‑card">
+                <h3>CSS 布局</h3>
+                <p>Flex、Grid 与响应式设计。</p >
+                <a href="#">查看详情</a >
+            </article>
+            <article class="course‑card">
+                <h3>JavaScript 基础</h3>
+                <p>让页面动起来的第一门语言。</p >
+                <a href="#">查看详情</a >
+            </article>
         </div>
-    </section>
-</main>
-
-<footer>
-    <p>课程演示案例 · 纯CSS版</p >
-</footer>
+    </main>
 </body>
 </html>
