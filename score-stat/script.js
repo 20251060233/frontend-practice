@@ -1,31 +1,41 @@
- const scores = [
-  { name: '李四', score: 92 },
-  { name: '王五', score: 45 },
-  { name: '赵六', score: 77 },
-  { name: '孙七', score: 59 },
-  { name: '周八', score: 88 },
-  { name: '吴九', score: 105 },   // 故意混入非法值：满分100
-  { name: '郑十', score: -3 }     // 负分
-];
-console.table(scores);
+ 软件开发综合实践
+课堂实践进度报告
+一、总体情况
+1、当次任务清单完成
+序号	任务	完成情况
+1		☑已完成　□部分完成　□未完成
+2		☑已完成　□部分完成　□未完成
+3		☑已完成　□部分完成　□未完成
+4		☑已完成　□部分完成　□未完成
+5		☑已完成　□部分完成　□未完成
+6		☑已完成　□部分完成　□未完成
+7		☑已完成　□部分完成　□未完成
+8		☑已完成　□部分完成　□未完成
+未完成项的原因与课后完成计划	　
 
-// 清洗：只保留0至100之间的合法成绩
-const cleanScores = (list) => list.filter(s => s.score >= 0 && s.score <= 100);
-
-// 平均分
-const average = (list) => {
-  if (list.length === 0) return 0;   // 空数组保护，除零会产生NaN
-  const total = list.reduce((sum, s) => sum + s.score, 0);
-  return (total / list.length).toFixed(2);
-};
-
-// 最高分
-const highest = (list) => list.reduce((max, s) => s.score > max.score ? s : max, list[0]);
-
-// 不及格名单
-const failed = (list) => list.filter(s => s.score < 60).map(s => s.name);
-
-console.log('清洗后：', cleanScores(scores));
-console.log('平均分：', average(cleanScores(scores)));
-console.log('最高分：', highest(cleanScores(scores)));
-console.log('不及格：', failed(cleanScores(scores)));
+2、本报告所记录的过程与代码为本人独立完成；本人能够解释报告中全部代码，无法解释或无法现场修改的代码不作为有效学习产出。你是否确认此声明:（ A   ）
+A．确认，本人承诺声明属实
+B．不确认
+二、案例复现部分 
+1. git log提交记录：粘贴git log --oneline的输出
+ 2. 运行结果截图（每个截图需要全屏）：粘贴复现结果在浏览器中的完整运行效果，并配一句解释。
+三、自主实践部分
+1. 需求理解与选题理由：你选了什么真实场景（社团报名、活动登记、问卷等），为什么选它（两三句话）。
+2. 结构说明：
+按下表列出你的作品结构提纲。
+页面区块（语义化元素）	该区块放置的内容
+　	　
+　	　
+　	　
+3. 关键代码说明：从你的作品中选一段最关键的代码粘贴在此，并解释它做了什么、为什么这样写。
+4. git log提交记录：粘贴git log --oneline的输出
+5.运行截图汇总（截图需全屏）：以上截图按顺序编号粘贴在下方，每张配一句解释。
+（截图1：＿＿＿＿＿＿；截图2：＿＿＿＿＿＿；……）
+四、独立研究部分
+分项简述独立研究部分（选做）的完成情况
+五、收获和问题解决
+1. 知识总结：用自己的话写3至5句本次课掌握的知识
+2.问题解决
+记录至少1个你实际遇到的问题（报错、显示异常、数据丢失、加载失败等）。没有遇到问题的同学，记录一次“故意实验”的观察（如故意断网、输入非法值、删除数据文件后的程序表现）
+六、工具使用说明
+本课程不以AI生成代码作为主要完成路径。如使用AI工具辅助，请注明用途。
