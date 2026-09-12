@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图书收藏管理</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { max-width: 520px; margin: 30px auto; padding: 0 16px; font-family: sans-serif; }
+    .form-item { margin:8px 0; }
+    input { padding: 6px; width:100%; }
+    button { padding:6px 10px; cursor:pointer; margin: 0 4px; }
+    .error-tip { color: #c00; min-height:20px; font-size:14px; }
+    .book-item { border:1px solid #ccc; padding:10px; margin:8px 0; border-radius:6px; }
+  </style>
+</head>
+<body>
+  <h1>我的图书收藏</h1>
+  <form id="add-form">
+    <div class="form-item">
+      <input type="text" id="bookName" placeholder="书名">
+    </div>
+    <div class="form-item">
+      <input type="text" id="author" placeholder="作者">
+    </div>
+    <div class="form-item">
+      <input type="number" id="score" placeholder="评分(0-10)" step="0.1">
+    </div>
+    <button type="submit">添加图书</button>
+  </form>
+  <p class="error-tip" id="tip"></p>
+
+  <h3>图书列表</h3>
+  <div id="book-list"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
