@@ -12,6 +12,22 @@ const loadData = async () => {
       return;
     }
     state.data = data;
+   const state = { data: null };
+let barChart = null;
+
+const loadData = async () => {
+  $('#status').text('加载中...').show();
+  try {
+    const response = await fetch('data/books.json');
+    if (!response.ok) {
+      throw new Error('HTTP ' + response.status);
+    }
+    const data = await response.json();
+    if (data.series.length === 0) {
+      $('#status').text('暂无数据').show();
+      return;
+    }
+    state.data = data;
     $('#sub-title').text(data.title + ' · 数据来源：课程统一数据集');
     $('#status').hide();
     renderCards(data);
@@ -40,9 +56,27 @@ const renderCards = (data) => {
   });
 };
 
-// 占位函数，第二次提交实现
-function renderBarChart(){}
+// 【新增：ECharts柱状图渲染】
+const renderBarChart = (data) => {
+  if (barChart === null) {
+    barChart = echarts.init(document.querySelector('#bar-chart'));
+  }
+  barChart.setOption({
+    title: { text: '各月各品类借阅量', left: 'center' },
+    tooltip: { trigger: 'axis' },
+    legend: { bottom: 0 },
+    xAxis: { data: data.months },
+    yAxis: { name: '册' },
+    series: data.series.map(s => ({
+      name: s.category,
+      type: 'bar',
+      data: s.counts
+    }))
+  });
+};
+
 // 占位函数，第三次提交实现
 function renderLineChart(){}
 
 loadData();
+
