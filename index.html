@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>前端实践作业导航</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .container {
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px 36px;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  }
+  h1 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 6px;
+  }
+  .sub {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+  ul { list-style: none; }
+  li {
+    margin-bottom: 12px;
+  }
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: #f5f7ff;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+    transition: all 0.2s;
+  }
+  a:hover {
+    background: #667eea;
+    color: #fff;
+    transform: translateX(4px);
+  }
+  a span {
+    font-size: 12px;
+    color: #aaa;
+  }
+  a:hover span {
+    color: rgba(255,255,255,0.8);
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>前端实践作业导航</h1>
+    <p class="sub">云南大学 · 计算机科学与技术</p>
+    <ul>
+      <li><a href="dashboard/index.html">数据看板 <span>dashboard</span></a></li>
+      <li><a href="club-app/index.html">社团报名表单 <span>club-app</span></a></li>
+      <li><a href="calc-tool/index.html">绩点计算器 <span>calc-tool</span></a></li>
+      <li><a href="score-stat/index.html">成绩统计工具 <span>score-stat</span></a></li>
+      <li><a href="courses/index.html">课程查询页面 <span>courses</span></a></li>
+      <li><a href="feed-back-form/index.html">课程反馈表单 <span>feed-back-form</span></a></li>
+      <li><a href="homepage/index.html">个人介绍主页 <span>homepage</span></a></li>
+      <li><a href="kunmingmeishi/index.html">昆明美食页面 <span>kunmingmeishi</span></a></li>
+      <li><a href="manager-app/index.html">图书管理页面 <span>manager-app</span></a></li>
+      <li><a href="my-dashboard/index.html">校园消费看板 <span>my-dashboard</span></a></li>
+      <li><a href="three-d/index.html">3D校园地标 <span>three-d</span></a></li>
+      <li><a href="todo-app/index.html">待办清单 <span>todo-app</span></a></li>
+    </ul>
+  </div>
+</body>
+</html>
