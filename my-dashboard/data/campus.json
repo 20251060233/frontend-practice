@@ -1,0 +1,9 @@
+{
+  "source": "校园学生抽样统计",
+  "dataList": [
+    {"name":"小明","month":1,"consume":860,"studyHour":42,"sportTimes":12,"libraryVisit":18,"mealCnt":64,"snack":120,"electric":45},
+    {"name":"小红","month":1,"consume":920,"studyHour":56,"sportTimes":18,"libraryVisit":26,"mealCnt":70,"snack":95,"electric":52},
+    {"name":"小刚","month":1,"consume":740,"studyHour":30,"sportTimes":8,"libraryVisit":10,"mealCnt":58,"snack":80,"electric":38},
+    {"name":"小丽","month":1,"consume":1050,"studyHour":62,"sportTimes":22,"libraryVisit":32,"mealCnt":76,"snack":150,"electric":60}
+  ]
+}

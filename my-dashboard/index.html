@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>校园生活数据看板</title>
+  <!-- CDN引入 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>校园生活数据看板</h1>
+    <!-- 状态提示区域 -->
+    <div id="statusBox">加载中...</div>
+    <!-- jQuery筛选控件 -->
+    <div class="filter-box">
+      <span>最低月消费筛选：</span>
+      <input type="number" id="consumeFilter" value="0">
+      <button id="filterBtn">筛选数据</button>
+    </div>
+    <!-- 图表容器 -->
+    <div class="chart-wrap">
+      <div id="chartE" class="chart-item"></div>
+      <canvas id="chartC" class="chart-item"></canvas>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
