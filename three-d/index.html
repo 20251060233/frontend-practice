@@ -2,10 +2,16 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>旋转展示台</title>
-  <style> body { margin: 0; } </style>
+  <title>校园地标 · Three.js</title>
+  <style>
+    body { margin: 0; overflow: hidden; }
+    #tip { position: fixed; top: 10px; left: 50%; transform: translateX(-50%);
+           padding: 6px 14px; background: rgba(0,0,0,.55); color: #fff;
+           border-radius: 16px; font: 13px/1.6 sans-serif; z-index: 9; pointer-events: none; }
+  </style>
 </head>
 <body>
+  <div id="tip">鼠标拖拽旋转 · 滚轮缩放 · 右键平移</div>
   <script src="libs/three.min.js"></script>
   <script src="libs/OrbitControls.js"></script>
   <script src="showcase.js"></script>
