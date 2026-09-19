@@ -1,0 +1,30 @@
+{
+  "updateTime": "2026-09-19 08:00",
+  "source": "校后勤服务中心（示例数据，仅用于课程作业演示）",
+  "canteens": [
+    { "id": "c1", "name": "紫荆食堂", "campus": "本部", "openTime": "06:30-20:30", "floors": 3, "seats": 420, "crowd": "适中" },
+    { "id": "c2", "name": "桃李食堂", "campus": "本部", "openTime": "06:00-21:00", "floors": 2, "seats": 350, "crowd": "拥挤" },
+    { "id": "c3", "name": "清芬食堂", "campus": "东校区", "openTime": "06:30-19:30", "floors": 2, "seats": 260, "crowd": "较空" },
+    { "id": "c4", "name": "丁香食堂", "campus": "东校区", "openTime": "07:00-20:00", "floors": 1, "seats": 180, "crowd": "适中" }
+  ],
+  "dishes": [
+    { "id": "d01", "name": "红烧牛肉面", "canteenId": "c1", "floor": 1, "stall": "西北面食", "category": "面食", "price": 12, "spicy": 1, "rating": 4.6, "sales": 326 },
+    { "id": "d02", "name": "葱油拌面", "canteenId": "c1", "floor": 1, "stall": "西北面食", "category": "面食", "price": 8, "spicy": 0, "rating": 4.3, "sales": 215 },
+    { "id": "d03", "name": "排骨米饭套餐", "canteenId": "c1", "floor": 2, "stall": "家常菜窗口", "category": "米饭套餐", "price": 15, "spicy": 1, "rating": 4.7, "sales": 402 },
+    { "id": "d04", "name": "番茄炒蛋套饭", "canteenId": "c1", "floor": 2, "stall": "家常菜窗口", "category": "米饭套餐", "price": 10, "spicy": 0, "rating": 4.4, "sales": 366 },
+    { "id": "d05", "name": "麻辣香锅", "canteenId": "c1", "floor": 3, "stall": "川湘风味", "category": "麻辣烫", "price": 18, "spicy": 2, "rating": 4.5, "sales": 289 },
+    { "id": "d06", "name": "皮蛋瘦肉粥", "canteenId": "c1", "floor": 1, "stall": "粥品点心", "category": "粥粉简餐", "price": 6, "spicy": 0, "rating": 4.2, "sales": 178 },
+    { "id": "d07", "name": "重庆小面", "canteenId": "c2", "floor": 1, "stall": "重庆风味", "category": "面食", "price": 11, "spicy": 3, "rating": 4.5, "sales": 310 },
+    { "id": "d08", "name": "黄焖鸡米饭", "canteenId": "c2", "floor": 1, "stall": "黄焖鸡窗口", "category": "米饭套餐", "price": 16, "spicy": 2, "rating": 4.6, "sales": 388 },
+    { "id": "d09", "name": "麻辣烫（自选）", "canteenId": "c2", "floor": 2, "stall": "麻辣烫专区", "category": "麻辣烫", "price": 14, "spicy": 2, "rating": 4.1, "sales": 275 },
+    { "id": "d10", "name": "鲜肉小笼包", "canteenId": "c2", "floor": 1, "stall": "粥品点心", "category": "粥粉简餐", "price": 7, "spicy": 0, "rating": 4.4, "sales": 342 },
+    { "id": "d11", "name": "黑椒牛柳意面", "canteenId": "c2", "floor": 2, "stall": "西式简餐", "category": "粥粉简餐", "price": 17, "spicy": 1, "rating": 4.3, "sales": 158 },
+    { "id": "d12", "name": "香辣虾套餐", "canteenId": "c3", "floor": 1, "stall": "海鲜窗口", "category": "米饭套餐", "price": 20, "spicy": 3, "rating": 4.2, "sales": 132 },
+    { "id": "d13", "name": "阳春面", "canteenId": "c3", "floor": 1, "stall": "大众面食", "category": "面食", "price": 7, "spicy": 0, "rating": 4.0, "sales": 196 },
+    { "id": "d14", "name": "酸菜鱼米饭", "canteenId": "c3", "floor": 2, "stall": "家常菜窗口", "category": "米饭套餐", "price": 16, "spicy": 2, "rating": 4.5, "sales": 246 },
+    { "id": "d15", "name": "原味豆浆", "canteenId": "c3", "floor": 1, "stall": "甜点饮品", "category": "甜点饮品", "price": 2, "spicy": 0, "rating": 4.6, "sales": 510 },
+    { "id": "d16", "name": "新疆炒拉条", "canteenId": "c4", "floor": 1, "stall": "清真风味", "category": "面食", "price": 13, "spicy": 2, "rating": 4.4, "sales": 187 },
+    { "id": "d17", "name": "手抓羊肉饭", "canteenId": "c4", "floor": 1, "stall": "清真风味", "category": "米饭套餐", "price": 22, "spicy": 1, "rating": 4.7, "sales": 121 },
+    { "id": "d18", "name": "蛋挞（2只）", "canteenId": "c4", "floor": 1, "stall": "甜点饮品", "category": "甜点饮品", "price": 5, "spicy": 0, "rating": 4.5, "sales": 268 }
+  ]
+}

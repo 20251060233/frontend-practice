@@ -1,0 +1,26 @@
+{
+  "week": "2026-09-14 至 2026-09-20",
+  "source": "校一卡通结算中心（示例数据，仅用于课程作业演示）",
+  "daily": [
+    { "day": "周一", "breakfast": 1860, "lunch": 4520, "dinner": 3890 },
+    { "day": "周二", "breakfast": 1740, "lunch": 4380, "dinner": 3760 },
+    { "day": "周三", "breakfast": 1810, "lunch": 4650, "dinner": 4010 },
+    { "day": "周四", "breakfast": 1690, "lunch": 4420, "dinner": 3840 },
+    { "day": "周五", "breakfast": 1580, "lunch": 4360, "dinner": 4280 },
+    { "day": "周六", "breakfast": 920, "lunch": 3450, "dinner": 3620 },
+    { "day": "周日", "breakfast": 860, "lunch": 3580, "dinner": 3740 }
+  ],
+  "byCanteen": [
+    { "name": "紫荆食堂", "value": 21650 },
+    { "name": "桃李食堂", "value": 18920 },
+    { "name": "清芬食堂", "value": 12480 },
+    { "name": "丁香食堂", "value": 8640 }
+  ],
+  "byCategory": [
+    { "name": "米饭套餐", "value": 38 },
+    { "name": "面食", "value": 24 },
+    { "name": "麻辣烫", "value": 15 },
+    { "name": "粥粉简餐", "value": 13 },
+    { "name": "甜点饮品", "value": 10 }
+  ]
+}
