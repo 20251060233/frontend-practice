@@ -87,28 +87,34 @@
       </div>
     </section>
 
-    <!-- ===== 自习室区块（第一步占位，第二步实现筛选） ===== -->
+    <!-- ===== 自习室区块：楼层 / 开放状态即时筛选 ===== -->
     <section id="rooms" class="content-section">
       <h2 class="h4 mb-3">自习室查询</h2>
-      <div class="placeholder-box">
-        <p class="mb-1 text-muted">【占位】此区块位于页面中部，第二步将实现：</p>
-        <ul class="text-muted mb-0">
-          <li>按楼层、开放状态即时过滤自习室列表</li>
-          <li>数据写死在 JS 数组中，复用课堂五的筛选模式</li>
-        </ul>
+      <div class="filter-bar">
+        <label for="floorFilter">楼层</label>
+        <select id="floorFilter" class="form-select form-select-sm">
+          <option value="all">全部楼层</option>
+          <option value="1">1 层</option>
+          <option value="2">2 层</option>
+          <option value="3">3 层</option>
+          <option value="4">4 层</option>
+        </select>
+        <label for="statusFilter">开放状态</label>
+        <select id="statusFilter" class="form-select form-select-sm">
+          <option value="all">全部状态</option>
+          <option value="open">开放中</option>
+          <option value="closed">维护关闭</option>
+        </select>
+        <span id="roomCount"></span>
       </div>
+      <div id="roomList" class="row g-3"></div>
     </section>
 
-    <!-- ===== 统计区块（第一步占位，第二步实现图表） ===== -->
+    <!-- ===== 统计区块：fetch 加载 data.json 渲染 ECharts 柱状图 ===== -->
     <section id="stats" class="content-section">
       <h2 class="h4 mb-3">使用统计图表</h2>
-      <div class="placeholder-box">
-        <p class="mb-1 text-muted">【占位】此区块位于自习室区块下方，第二步将实现：</p>
-        <ul class="text-muted mb-0">
-          <li>fetch 加载 data.json 数据文件</li>
-          <li>ECharts 各自习室使用量柱状图（含标题、单位、数据来源）</li>
-        </ul>
-      </div>
+      <p id="dataStatus" class="show loading">数据加载中，请稍候…</p>
+      <div id="usageChart" class="chart-box"></div>
     </section>
 
     <!-- ===== 三维区块（第一步占位，第三步迁移场景页） ===== -->
@@ -129,5 +135,7 @@
   </footer>
 
   <script src="libs/bootstrap.bundle.min.js"></script>
+  <script src="libs/echarts.min.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
