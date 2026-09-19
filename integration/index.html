@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>校园公共信息与数据展示中心</title>
+  <!-- Bootstrap 本地库：断网环境下页面样式依然可用 -->
+  <link rel="stylesheet" href="libs/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- ===== 顶部导航：四个模块入口，手机宽度自动折叠 ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark campus-navbar sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#home">
+        <span class="brand-mark">C</span>校园信息中心
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNav" aria-controls="mainNav"
+              aria-expanded="false" aria-label="切换导航">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <!-- data-bs-toggle：手机端点击链接后自动收起折叠菜单 -->
+          <li class="nav-item"><a class="nav-link active" href="#home" data-bs-toggle="collapse" data-bs-target="#mainNav">首页</a></li>
+          <li class="nav-item"><a class="nav-link" href="#rooms" data-bs-toggle="collapse" data-bs-target="#mainNav">自习室</a></li>
+          <li class="nav-item"><a class="nav-link" href="#stats" data-bs-toggle="collapse" data-bs-target="#mainNav">统计</a></li>
+          <li class="nav-item"><a class="nav-link" href="#three" data-bs-toggle="collapse" data-bs-target="#mainNav">校园三维</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== 首页横幅 + 模块卡片 ===== -->
+  <header id="home" class="hero">
+    <div class="container text-center text-white py-5">
+      <h1 class="display-6 fw-bold">迷你版校园公共信息与数据展示中心</h1>
+      <p class="lead mb-0">课堂成果整合：信息查询 · 数据图表 · 三维导览</p>
+    </div>
+  </header>
+
+  <main class="container my-5">
+    <section class="mb-5">
+      <h2 class="h4 mb-3">功能模块</h2>
+      <div class="row g-4">
+        <div class="col-sm-6 col-lg-3">
+          <div class="card module-card h-100 shadow-sm">
+            <div class="card-body d-flex flex-column">
+              <span class="module-tag tag-blue">01</span>
+              <h3 class="h5">首页导航</h3>
+              <p class="text-muted flex-grow-1">基于 Bootstrap 的响应式导航与卡片总览，串联全部课堂模块。</p>
+              <a class="btn btn-outline-primary btn-sm" href="#home">回到顶部</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="card module-card h-100 shadow-sm">
+            <div class="card-body d-flex flex-column">
+              <span class="module-tag tag-green">02</span>
+              <h3 class="h5">自习室查询</h3>
+              <p class="text-muted flex-grow-1">按楼层与开放状态即时筛选自习室列表，快速找到可用座位。</p>
+              <a class="btn btn-outline-primary btn-sm" href="#rooms">进入查询</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="card module-card h-100 shadow-sm">
+            <div class="card-body d-flex flex-column">
+              <span class="module-tag tag-orange">03</span>
+              <h3 class="h5">使用统计</h3>
+              <p class="text-muted flex-grow-1">加载 data.json，用 ECharts 展示各自习室使用量柱状图。</p>
+              <a class="btn btn-outline-primary btn-sm" href="#stats">查看图表</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="card module-card h-100 shadow-sm">
+            <div class="card-body d-flex flex-column">
+              <span class="module-tag tag-purple">04</span>
+              <h3 class="h5">校园三维导览</h3>
+              <p class="text-muted flex-grow-1">复用课堂七 Three.js 场景，可拖拽环绕浏览校园地标。</p>
+              <a class="btn btn-outline-primary btn-sm" href="#three">三维入口</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 自习室区块（第一步占位，第二步实现筛选） ===== -->
+    <section id="rooms" class="content-section">
+      <h2 class="h4 mb-3">自习室查询</h2>
+      <div class="placeholder-box">
+        <p class="mb-1 text-muted">【占位】此区块位于页面中部，第二步将实现：</p>
+        <ul class="text-muted mb-0">
+          <li>按楼层、开放状态即时过滤自习室列表</li>
+          <li>数据写死在 JS 数组中，复用课堂五的筛选模式</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== 统计区块（第一步占位，第二步实现图表） ===== -->
+    <section id="stats" class="content-section">
+      <h2 class="h4 mb-3">使用统计图表</h2>
+      <div class="placeholder-box">
+        <p class="mb-1 text-muted">【占位】此区块位于自习室区块下方，第二步将实现：</p>
+        <ul class="text-muted mb-0">
+          <li>fetch 加载 data.json 数据文件</li>
+          <li>ECharts 各自习室使用量柱状图（含标题、单位、数据来源）</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== 三维区块（第一步占位，第三步迁移场景页） ===== -->
+    <section id="three" class="content-section">
+      <h2 class="h4 mb-3">校园地标三维区</h2>
+      <div class="placeholder-box">
+        <p class="mb-1 text-muted">【占位】第三步将新建 three-d/scene.html：</p>
+        <ul class="text-muted mb-0">
+          <li>把课堂七的 Three.js 校园地标场景搬入独立页面</li>
+          <li>从首页导航进入，页面内可一键返回首页</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="campus-footer text-center text-white-50 py-3">
+    <small>课堂成果整合案例 · 迷你版校园公共信息与数据展示中心</small>
+  </footer>
+
+  <script src="libs/bootstrap.bundle.min.js"></script>
+</body>
+</html>

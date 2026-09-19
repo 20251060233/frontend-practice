@@ -1,0 +1,183 @@
+/* ===== 迷你版校园公共信息与数据展示中心 · 自定义样式 ===== */
+
+:root {
+  --campus-primary: #1565c0;
+  --campus-dark: #0d3a6e;
+  --campus-bg: #f2f6fb;
+}
+
+body {
+  background-color: var(--campus-bg);
+  font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+}
+
+/* ----- 导航栏 ----- */
+.campus-navbar {
+  background: linear-gradient(90deg, var(--campus-dark), var(--campus-primary));
+}
+.brand-mark {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  margin-right: 6px;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--campus-primary);
+  font-weight: 700;
+}
+.navbar .nav-link {
+  font-weight: 500;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: #ffd54f !important;
+}
+
+/* ----- 首页横幅 ----- */
+.hero {
+  background: linear-gradient(rgba(13, 58, 110, 0.82), rgba(21, 101, 192, 0.82)),
+              radial-gradient(circle at 20% 20%, #90caf9, transparent 60%);
+  border-bottom: 3px solid #ffd54f;
+}
+
+/* ----- 模块卡片 ----- */
+.module-card {
+  border: 0;
+  border-top: 4px solid var(--campus-primary);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.module-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 .5rem 1rem rgba(13, 58, 110, .15) !important;
+}
+.module-tag {
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: .75rem;
+}
+.tag-blue   { background: #1565c0; }
+.tag-green  { background: #2e7d32; }
+.tag-orange { background: #ef6c00; }
+.tag-purple { background: #6a1b9a; }
+
+/* ----- 内容区块（锚点跳转时避开吸顶导航） ----- */
+.content-section {
+  scroll-margin-top: 80px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(13, 58, 110, .08);
+}
+
+/* ----- 第一步占位框 ----- */
+.placeholder-box {
+  padding: 1.25rem 1.5rem;
+  border: 1px dashed #90b4dd;
+  border-radius: 8px;
+  background: #f7faff;
+}
+
+/* ----- 自习室筛选条 ----- */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem 1.25rem;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  background: #f7faff;
+  border-radius: 8px;
+}
+.filter-bar label {
+  margin: 0;
+  font-weight: 600;
+  color: var(--campus-dark);
+}
+.filter-bar select {
+  width: auto;
+  display: inline-block;
+}
+#roomCount {
+  margin-left: auto;
+  color: #607d8b;
+  font-size: .9rem;
+}
+
+/* ----- 自习室卡片 ----- */
+.room-card {
+  border: 0;
+  border-left: 4px solid #2e7d32;
+  height: 100%;
+}
+.room-card.is-closed {
+  border-left-color: #9e9e9e;
+  opacity: .85;
+}
+.room-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 .75rem;
+  font-size: .92rem;
+  color: #455a64;
+}
+.room-meta li {
+  padding: 2px 0;
+}
+.occupancy-bar {
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #e3edf7;
+  margin-bottom: .5rem;
+}
+.occupancy-bar > span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #42a5f5, #1565c0);
+}
+.occupancy-bar.is-high > span {
+  background: linear-gradient(90deg, #ffb74d, #e65100);
+}
+.empty-tip {
+  padding: 2rem;
+  text-align: center;
+  color: #90a4ae;
+}
+
+/* ----- 状态提示（加载中 / 失败 / 成功） ----- */
+#dataStatus.loading { color: #1565c0; }
+#dataStatus.error   { color: #c62828; background: #fdecea; border: 1px solid #f5c6c2; }
+#dataStatus.success { color: #2e7d32; }
+#dataStatus {
+  display: none;
+  padding: .6rem 1rem;
+  border-radius: 8px;
+  font-size: .92rem;
+}
+#dataStatus.show { display: block; }
+
+/* ----- 图表容器 ----- */
+.chart-box {
+  width: 100%;
+  height: 420px;
+}
+
+/* ----- 页脚 ----- */
+.campus-footer {
+  background: var(--campus-dark);
+}
+
+/* ----- 手机宽度微调 ----- */
+@media (max-width: 575.98px) {
+  .chart-box { height: 320px; }
+  #roomCount { margin-left: 0; width: 100%; }
+}
