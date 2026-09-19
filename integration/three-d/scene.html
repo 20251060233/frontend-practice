@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>校园三维导览 · Three.js</title>
+  <style>
+    html, body { margin: 0; height: 100%; overflow: hidden; }
+    /* 返回条固定在最上层，不被 WebGL 画布遮挡 */
+    .top-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 8px 16px;
+      background: rgba(13, 58, 110, 0.85);
+      color: #fff; font: 15px/1.6 "Microsoft YaHei", sans-serif;
+    }
+    .top-bar a {
+      text-decoration: none; color: #0d3a6e; font-weight: 600;
+      background: #ffd54f; padding: 4px 14px; border-radius: 16px;
+    }
+    #tip {
+      position: fixed; top: 56px; left: 50%; transform: translateX(-50%);
+      padding: 6px 14px; background: rgba(0,0,0,.55); color: #fff;
+      border-radius: 16px; font: 13px/1.6 "Microsoft YaHei", sans-serif;
+      z-index: 9; pointer-events: none; white-space: nowrap;
+    }
+    @media (max-width: 575.98px) {
+      #tip { font-size: 12px; top: 64px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <span>校园三维导览（复用课堂七 Three.js 场景）</span>
+    <a href="../index.html#home">&larr; 返回首页</a>
+  </div>
+  <div id="tip">鼠标拖拽旋转 · 滚轮缩放 · 右键平移</div>
+  <script src="libs/three.min.js"></script>
+  <script src="libs/OrbitControls.js"></script>
+  <script src="scene.js"></script>
+</body>
+</html>
