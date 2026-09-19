@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>食堂查询 · 校园食堂信息与数据展示中心</title>
+  <link rel="stylesheet" href="libs/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- ===== 顶部导航（与首页一致） ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark dining-navbar sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <span class="brand-mark">D</span>校园食堂信息中心
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNav" aria-controls="mainNav"
+              aria-expanded="false" aria-label="切换导航">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
+          <li class="nav-item"><a class="nav-link active" href="dining.html">食堂查询</a></li>
+          <li class="nav-item"><a class="nav-link" href="stats.html">数据统计</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-4 my-lg-5">
+
+    <!-- ===== 交互查询模块：关键词搜索 + 多条件筛选 ===== -->
+    <section class="mb-4">
+      <h1 class="h5 section-title mb-3">菜品查询</h1>
+      <div class="card shadow-sm mb-4">
+        <div class="card-body" id="filterBar">
+          <div class="row g-2">
+            <div class="col-12 col-md-6 col-lg-4">
+              <label class="form-label small mb-1" for="fKeyword">关键词（菜名 / 档口）</label>
+              <input type="text" id="fKeyword" class="form-control" placeholder="即时搜索，如：小面">
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+              <label class="form-label small mb-1" for="fCanteen">食堂</label>
+              <select id="fCanteen" class="form-select">
+                <option value="all">全部食堂</option>
+              </select>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+              <label class="form-label small mb-1" for="fCategory">类别</label>
+              <select id="fCategory" class="form-select">
+                <option value="all">全部类别</option>
+              </select>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+              <label class="form-label small mb-1" for="fFloor">楼层</label>
+              <select id="fFloor" class="form-select">
+                <option value="all">全部楼层</option>
+                <option value="1">一楼</option>
+                <option value="2">二楼</option>
+                <option value="3">三楼</option>
+              </select>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+              <label class="form-label small mb-1" for="fPrice">价位</label>
+              <select id="fPrice" class="form-select">
+                <option value="all">全部价位</option>
+                <option value="lt10">10 元以下</option>
+                <option value="10-15">10 – 15 元</option>
+                <option value="gt15">15 元以上</option>
+              </select>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+              <label class="form-label small mb-1" for="fSpicy">辣度</label>
+              <select id="fSpicy" class="form-select">
+                <option value="all">全部辣度</option>
+                <option value="0">不辣</option>
+                <option value="1">微辣</option>
+                <option value="2">中辣</option>
+                <option value="3">特辣</option>
+              </select>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2 d-flex align-items-end">
+              <button type="button" id="resetBtn" class="btn btn-outline-secondary w-100">重置筛选</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-muted small fw-bold" id="resultCount">筛选结果：加载中…</p>
+      <div class="row g-3" id="dishGrid"></div>
+    </section>
+
+    <hr>
+
+    <!-- ===== 管理模块：添加 / 删除菜品评价 ===== -->
+    <section class="mb-4">
+      <h2 class="h5 section-title mb-3">菜品评价管理</h2>
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h3 class="h6 mb-3">添加评价</h3>
+              <form id="reviewForm" novalidate>
+                <div class="mb-2">
+                  <label class="form-label small" for="rDish">选择菜品</label>
+                  <select id="rDish" class="form-select">
+                    <option value="">请选择菜品</option>
+                  </select>
+                  <div class="text-danger small" id="errDish"></div>
+                </div>
+                <div class="mb-2">
+                  <label class="form-label small" for="rNickname">昵称</label>
+                  <input type="text" id="rNickname" class="form-control" maxlength="12" placeholder="最多 12 个字">
+                  <div class="text-danger small" id="errNickname"></div>
+                </div>
+                <div class="mb-2">
+                  <label class="form-label small" for="rStar">评分</label>
+                  <select id="rStar" class="form-select">
+                    <option value="">请选择评分</option>
+                    <option value="5">★★★★★ 非常满意</option>
+                    <option value="4">★★★★ 满意</option>
+                    <option value="3">★★★ 一般</option>
+                    <option value="2">★★ 不满意</option>
+                    <option value="1">★ 很差</option>
+                  </select>
+                  <div class="text-danger small" id="errStar"></div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label small" for="rContent">评价内容</label>
+                  <textarea id="rContent" class="form-control" rows="3" maxlength="100"
+                            placeholder="最多 100 字，如：分量足，出餐快"></textarea>
+                  <div class="text-danger small" id="errContent"></div>
+                </div>
+                <!-- type="button"：提交完全走 JS 校验，避免任何绕过校验的原生提交 -->
+                <button type="button" id="reviewSubmit" class="btn btn-warning text-white w-100">提交评价</button>
+                <p class="text-success small mt-2 mb-0" id="reviewOk" style="display:none"></p>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <h3 class="h6 mb-3">最新评价</h3>
+          <div id="reviewList"></div>
+          <p class="text-muted small mt-2">评价保存在本浏览器中（localStorage），仅用于课程演示，可随时删除。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer py-3 text-center">
+    <div class="container">
+      期末作业 · 校园食堂信息与数据展示中心 ·
+      数据来自 <code>data/canteens.json</code> · 需通过本地服务器访问（详见 README.md）
+    </div>
+  </footer>
+
+  <script src="libs/jquery-3.7.1.min.js"></script>
+  <script src="libs/bootstrap.bundle.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/dining.js"></script>
+</body>
+</html>

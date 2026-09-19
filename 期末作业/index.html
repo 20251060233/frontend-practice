@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首页 · 校园食堂信息与数据展示中心</title>
+  <!-- Bootstrap 5 本地库：离线环境样式依然可用 -->
+  <link rel="stylesheet" href="libs/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- ===== 顶部导航：三个页面入口，手机宽度自动折叠 ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark dining-navbar sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <span class="brand-mark">D</span>校园食堂信息中心
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNav" aria-controls="mainNav"
+              aria-expanded="false" aria-label="切换导航">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="index.html">首页</a></li>
+          <li class="nav-item"><a class="nav-link" href="dining.html">食堂查询</a></li>
+          <li class="nav-item"><a class="nav-link" href="stats.html">数据统计</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== 首页横幅 ===== -->
+  <header class="hero text-center text-white">
+    <div class="container">
+      <h1 class="fw-bold">校园食堂信息与数据展示中心</h1>
+      <p class="lead mb-0">菜品查询 · 就餐数据图表 · 餐厅三维布局展示</p>
+    </div>
+  </header>
+
+  <main class="container my-4 my-lg-5">
+
+    <!-- ===== 数据概览卡片：数据来自 data/canteens.json ===== -->
+    <section class="mb-5" id="overview">
+      <h2 class="h5 section-title mb-3">数据概览</h2>
+      <div class="row g-3">
+        <div class="col-6 col-lg-3">
+          <div class="card stat-card h-100"><div class="card-body text-center">
+            <div class="stat-value"><span id="statCanteen">--</span></div>
+            <div class="stat-label">在营食堂（家）</div>
+          </div></div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="card stat-card h-100"><div class="card-body text-center">
+            <div class="stat-value"><span id="statDish">--</span></div>
+            <div class="stat-label">在售菜品（道）</div>
+          </div></div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="card stat-card h-100"><div class="card-body text-center">
+            <div class="stat-value"><span id="statSeat">--</span></div>
+            <div class="stat-label">座位总数（个）</div>
+          </div></div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="card stat-card h-100"><div class="card-body text-center">
+            <div class="stat-value" style="font-size:1.1rem"><span id="updateTime">--</span></div>
+            <div class="stat-label">数据更新时间</div>
+          </div></div>
+        </div>
+      </div>
+      <p class="text-muted small mt-2 mb-0">数据来源：<span id="dataSource">加载中…</span></p>
+    </section>
+
+    <!-- ===== 快捷搜索：跳转到查询页 ===== -->
+    <section class="mb-5">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h2 class="h6 mb-3">快捷查询</h2>
+          <div class="row g-2">
+            <div class="col-12 col-md-8">
+              <input type="text" id="quickSearch" class="form-control"
+                     placeholder="输入菜品或档口名称，如：牛肉面、清真风味">
+            </div>
+            <div class="col-12 col-md-4 d-grid">
+              <button type="button" id="quickSearchBtn" class="btn btn-warning text-white">去食堂查询页搜索</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 功能模块入口 ===== -->
+    <section class="mb-5">
+      <h2 class="h5 section-title mb-3">功能模块</h2>
+      <div class="row g-4">
+        <div class="col-sm-6 col-lg-4">
+          <div class="card module-card h-100">
+            <div class="card-body d-flex flex-column">
+              <span class="module-tag tag-orange">01</span>
+              <h3 class="h6">食堂查询</h3>
+              <p class="text-muted small flex-grow-1">按关键词、食堂、楼层、价位、辣度多条件筛选菜品。</p>
+              <a class="btn btn-outline-warning btn-sm mt-2" href="dining.html">进入查询</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <div class="card module-card h-100">
+            <div class="card-body d-flex flex-column">
+              <span class="module-tag tag-green">02</span>
+              <h3 class="h6">数据统计</h3>
+              <p class="text-muted small flex-grow-1">柱状图 + 饼图展示各食堂就餐人次与菜品类别占比。</p>
+              <a class="btn btn-outline-success btn-sm mt-2" href="stats.html">查看图表</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <div class="card module-card h-100">
+            <div class="card-body d-flex flex-column">
+              <span class="module-tag tag-blue">03</span>
+              <h3 class="h6">餐厅三维布局</h3>
+              <p class="text-muted small flex-grow-1">基于 Three.js 的一层餐厅三维预览，可拖拽旋转、缩放。</p>
+              <a class="btn btn-outline-primary btn-sm mt-2" href="#scene3dSection">立即查看</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 一周就餐趋势折线图：数据来自 data/stats.json ===== -->
+    <section class="mb-5">
+      <h2 class="h5 section-title mb-3">一周就餐趋势</h2>
+      <div class="chart-box" id="trendChart"></div>
+      <div class="empty-tip" id="trendEmpty" style="display:none">
+        本周暂无就餐统计数据（数据文件为空）。
+      </div>
+    </section>
+
+    <!-- ===== 三维展示区域：Three.js 一层餐厅布局 ===== -->
+    <section class="mb-5" id="scene3dSection">
+      <h2 class="h5 section-title mb-1">餐厅三维布局展示</h2>
+      <p class="text-muted small mb-3">
+        一层餐厅布局预览：三个档口（面食 / 套餐 / 风味）、就餐圆桌与排队人流。
+        鼠标左键拖拽旋转视角，滚轮缩放，右键平移。
+      </p>
+      <div class="scene-wrap">
+        <div id="scene3d"></div>
+        <div id="webglFallback"></div>
+        <span class="scene-tip">拖拽旋转 · 滚轮缩放 · 右键平移</span>
+      </div>
+    </section>
+
+    <!-- ===== 运行说明（详见 README.md） ===== -->
+    <section class="mb-4">
+      <div class="alert alert-light border mb-0">
+        <strong>运行说明：</strong>本站所有第三方库均为本地副本，需通过本地静态服务器访问
+        （直接双击打开会因浏览器安全策略无法读取 JSON）。在本文件夹运行
+        <code>python -m http.server 8787</code>，然后访问
+        <code>http://localhost:8787/index.html</code>。详细说明见
+        <a href="README.md">README.md</a>。
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer py-3 text-center">
+    <div class="container">
+      期末作业 · 校园食堂信息与数据展示中心 ·
+      技术栈：Bootstrap + jQuery + ECharts + Three.js（均为本地库） · 示例数据仅用于课程演示
+    </div>
+  </footer>
+
+  <!-- ===== 脚本：本地库 + 页面逻辑（顺序不可调整） ===== -->
+  <script src="libs/jquery-3.7.1.min.js"></script>
+  <script src="libs/bootstrap.bundle.min.js"></script>
+  <script src="libs/echarts.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/main.js"></script>
+  <script src="three-d/libs/three.min.js"></script>
+  <script src="three-d/libs/OrbitControls.js"></script>
+  <script src="three-d/scene.js"></script>
+</body>
+</html>

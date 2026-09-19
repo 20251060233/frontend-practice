@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数据统计 · 校园食堂信息与数据展示中心</title>
+  <link rel="stylesheet" href="libs/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- ===== 顶部导航（与首页一致） ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark dining-navbar sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <span class="brand-mark">D</span>校园食堂信息中心
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNav" aria-controls="mainNav"
+              aria-expanded="false" aria-label="切换导航">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
+          <li class="nav-item"><a class="nav-link" href="dining.html">食堂查询</a></li>
+          <li class="nav-item"><a class="nav-link active" href="stats.html">数据统计</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-4 my-lg-5">
+    <h1 class="h5 section-title mb-1">就餐数据统计</h1>
+    <p class="text-muted small" id="statsMeta">数据加载中…</p>
+
+    <!-- 空数据中性提示（自测地址：stats.html?data=data/stats.empty.json） -->
+    <div class="empty-tip mb-4" id="statsEmpty" style="display:none">
+      当前数据文件为空，暂无可绘制的统计图表。请检查 data/stats.json，或刷新页面恢复默认数据。
+    </div>
+
+    <!-- ===== 图表一：柱状图（各食堂一周就餐人次） ===== -->
+    <section class="mb-4">
+      <div class="chart-box" id="barChart"></div>
+    </section>
+
+    <!-- ===== 图表二：饼图（菜品类别供应占比） ===== -->
+    <section class="mb-4">
+      <div class="chart-box" id="pieChart"></div>
+    </section>
+
+    <!-- ===== 图表说明 ===== -->
+    <section class="mb-4">
+      <div class="alert alert-light border mb-0 small">
+        <strong>图表说明：</strong>
+        本页包含两类图表 —— ① 柱状图：各食堂一周就餐人次对比；② 饼图：各菜品类别供应数量占比。
+        数据通过 jQuery 读取本地 <code>data/stats.json</code> 绘制（ECharts）。
+        空数据自测：<code>stats.html?data=data/stats.empty.json</code>。
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer py-3 text-center">
+    <div class="container">
+      期末作业 · 校园食堂信息与数据展示中心 ·
+      数据来自 <code>data/stats.json</code> · 需通过本地服务器访问（详见 README.md）
+    </div>
+  </footer>
+
+  <script src="libs/jquery-3.7.1.min.js"></script>
+  <script src="libs/bootstrap.bundle.min.js"></script>
+  <script src="libs/echarts.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/stats.js"></script>
+</body>
+</html>
