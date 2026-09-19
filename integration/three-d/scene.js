@@ -3,6 +3,23 @@
 // 光源：环境光 + 带阴影的方向光 + 路灯点光源
 // 动画：旗帜摆动、云朵飘移、钟楼指针旋转；交互：OrbitControls 鼠标拖拽
 
+(function () {
+  // ----- WebGL 支持性检测：不支持时显示降级提示并停止初始化（同伴审查意见③） -----
+  function webglAvailable() {
+    try {
+      var c = document.createElement('canvas');
+      return !!(window.WebGLRenderingContext &&
+        (c.getContext('webgl') || c.getContext('experimental-webgl')));
+    } catch (e) {
+      return false;
+    }
+  }
+  if (!webglAvailable()) {
+    var fallback = document.getElementById('webglFallback');
+    if (fallback) fallback.style.display = 'flex';
+    return;
+  }
+
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x87ceeb);           // 天空蓝
 scene.fog = new THREE.Fog(0x87ceeb, 30, 70);            // 雾：远景渐隐
@@ -218,3 +235,4 @@ window.addEventListener('resize', () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+})();

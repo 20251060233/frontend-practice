@@ -157,6 +157,7 @@ body {
 #dataStatus.loading { color: #1565c0; }
 #dataStatus.error   { color: #c62828; background: #fdecea; border: 1px solid #f5c6c2; }
 #dataStatus.success { color: #2e7d32; }
+#dataStatus.empty   { color: #8d6e00; background: #fff8e1; border: 1px solid #ffe082; }
 #dataStatus {
   display: none;
   padding: .6rem 1rem;
@@ -180,4 +181,8 @@ body {
 @media (max-width: 575.98px) {
   .chart-box { height: 320px; }
   #roomCount { margin-left: 0; width: 100%; }
+  /* 同伴审查意见④：手机端收敛横幅字号，避免标题生硬换行占满首屏 */
+  .hero .display-6 { font-size: 1.45rem; }
+  .hero .lead { font-size: .95rem; }
+  .filter-bar .btn { margin-left: 0; }
 }

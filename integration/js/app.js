@@ -72,6 +72,14 @@
   // change 事件：选择后立即生效，无需点击按钮
   floorFilterEl.addEventListener('change', renderRooms);
   statusFilterEl.addEventListener('change', renderRooms);
+
+  // 重置：两个下拉恢复“全部”并重新渲染（同伴审查意见①）
+  document.getElementById('resetFilter').addEventListener('click', function () {
+    floorFilterEl.value = 'all';
+    statusFilterEl.value = 'all';
+    renderRooms();
+  });
+
   renderRooms();
 
   // ---------------------------------------------------------------
@@ -119,15 +127,19 @@
   }
 
   async function loadData() {
+    // 默认加载 data/data.json；自测空数据时可用 ?data=data/data.empty.json 指定
+    var dataFile = new URLSearchParams(location.search).get('data') || 'data/data.json';
     setStatus('loading', '数据加载中，请稍候…');
     try {
-      const response = await fetch('data/data.json');
+      const response = await fetch(dataFile);
       if (!response.ok) {
         throw new Error('HTTP ' + response.status);
       }
       const data = await response.json();
       if (!data.records || data.records.length === 0) {
-        setStatus('error', '暂无可用统计数据');
+        // 空数据：区别于断网报错，用中性提示并清空旧图（同伴审查意见②）
+        setStatus('empty', '本月暂无自习室使用量数据，图表将在数据更新后自动渲染');
+        if (usageChart) usageChart.clear();
         return;
       }
       setStatus('success', '数据加载完成 ｜ ' + data.month + ' ｜ 数据来源：' + data.source);

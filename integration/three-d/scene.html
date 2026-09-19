@@ -35,6 +35,17 @@
     <a href="../index.html#home">&larr; 返回首页</a>
   </div>
   <div id="tip">鼠标拖拽旋转 · 滚轮缩放 · 右键平移</div>
+  <!-- WebGL 不可用时的降级提示（默认隐藏，scene.js 检测失败后显示） -->
+  <div id="webglFallback" style="display:none;position:fixed;inset:0;z-index:20;
+       background:#f2f6fb;align-items:center;justify-content:center;text-align:center;padding:24px">
+    <div>
+      <p style="font-size:1.2rem;color:#0d3a6e;font-weight:700">当前浏览器不支持或未开启 WebGL</p>
+      <p style="color:#607d8b">请使用最新版 Chrome / Edge 并在设置中开启硬件加速后重试。</p>
+      <a href="../index.html#three"
+         style="display:inline-block;margin-top:8px;text-decoration:none;color:#fff;background:#1565c0;
+                padding:8px 20px;border-radius:18px">返回首页</a>
+    </div>
+  </div>
   <script src="libs/three.min.js"></script>
   <script src="libs/OrbitControls.js"></script>
   <script src="scene.js"></script>
