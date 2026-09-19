@@ -181,7 +181,7 @@ body {
 @media (max-width: 575.98px) {
   .chart-box { height: 320px; }
   #roomCount { margin-left: 0; width: 100%; }
-  /* 同伴审查意见④：手机端收敛横幅字号，避免标题生硬换行占满首屏 */
+  /* 手机端收敛横幅字号，避免标题生硬换行占满首屏 */
   .hero .display-6 { font-size: 1.45rem; }
   .hero .lead { font-size: .95rem; }
   .filter-bar .btn { margin-left: 0; }

@@ -4,7 +4,7 @@
 // 动画：旗帜摆动、云朵飘移、钟楼指针旋转；交互：OrbitControls 鼠标拖拽
 
 (function () {
-  // ----- WebGL 支持性检测：不支持时显示降级提示并停止初始化（同伴审查意见③） -----
+  // ----- WebGL 支持性检测：不支持时显示降级提示并停止初始化 -----
   function webglAvailable() {
     try {
       var c = document.createElement('canvas');

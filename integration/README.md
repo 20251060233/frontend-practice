@@ -43,7 +43,7 @@ integration/
 │  └─ libs/                # three.min.js、OrbitControls.js（本地副本）
 ├─ libs/                   # bootstrap.min.css / bootstrap.bundle.min.js / echarts.min.js（本地副本）
 ├─ screenshots/            # 质量自查截图证据
-└─ docs/                   # 质量清单、同伴审查、轮值记录、期末实施计划
+└─ docs/                   # 质量清单、轮值记录、期末实施计划
 ```
 
 ## 三、运行说明
@@ -94,7 +94,6 @@ python -m http.server 8787
 ## 六、过程文档
 
 - [docs/quality-checklist.md](docs/quality-checklist.md)：质量清单自查记录
-- [docs/peer-review.md](docs/peer-review.md)：同伴审查意见与逐条处理记录
 - [docs/coordination-record.md](docs/coordination-record.md)：轮值协调记录
 - [docs/final-project-plan.md](docs/final-project-plan.md)：期末大作业实施计划初稿（任务分解/时间表/风险清单）
 
@@ -103,6 +102,6 @@ python -m http.server 8787
 1. 搭建整合骨架：Bootstrap 响应式导航 + 首页四模块卡片与区块占位
 2. 交互与图表：楼层/开放状态即时筛选 + ECharts 柱状图（标题/单位/数据来源/断网提示）
 3. 三维区与自查证据：three-d/scene.html 搬入课堂七场景 + 三档宽度/断网/三维截图
-4. 同伴审查意见处理：重置筛选、空数据提示、WebGL 降级、手机端字号
-5. 质量自查补全与过程文档：空数据/Console 证据、质量清单、同伴审查、轮值记录
+4. 易用性与健壮性增强：重置筛选、空数据提示、WebGL 降级、手机端字号
+5. 质量自查补全与过程文档：空数据/Console 证据、质量清单、轮值记录
 6. README：结构图、运行说明与资源来源说明

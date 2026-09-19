@@ -73,7 +73,7 @@
   floorFilterEl.addEventListener('change', renderRooms);
   statusFilterEl.addEventListener('change', renderRooms);
 
-  // 重置：两个下拉恢复“全部”并重新渲染（同伴审查意见①）
+  // 重置：两个下拉恢复“全部”并重新渲染
   document.getElementById('resetFilter').addEventListener('click', function () {
     floorFilterEl.value = 'all';
     statusFilterEl.value = 'all';
@@ -137,7 +137,7 @@
       }
       const data = await response.json();
       if (!data.records || data.records.length === 0) {
-        // 空数据：区别于断网报错，用中性提示并清空旧图（同伴审查意见②）
+        // 空数据：区别于断网报错，用中性提示并清空旧图
         setStatus('empty', '本月暂无自习室使用量数据，图表将在数据更新后自动渲染');
         if (usageChart) usageChart.clear();
         return;
