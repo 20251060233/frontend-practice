@@ -1,135 +1,408 @@
 <!DOCTYPE html>
-<html lang="zh‑CN">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF‑8">
-  <meta name="viewport" content="width=device‑width, initial‑scale=1.0">
-  <title>前端实践作业导航</title>
-  <style>
-    * { margin:0; padding:0; box‑sizing:border‑box; }
-    body {
-      font‑family: system‑ui,‑apple‑system,Segoe UI,Roboto,sans‑serif;
-      background:#f4f7fa;
-      padding:40px 20px;
-      max‑width:1000px;
-      margin:0 auto;
-    }
-    h1 {
-      text‑align:center;
-      color:#222;
-      margin‑bottom:40px;
-    }
-    .card‑list {
-      display:grid;
-      grid‑template‑columns: repeat(auto‑fill, minmax(240px,1fr));
-      gap:18px;
-    }
-    .card {
-      background:#fff;
-      border‑radius:10px;
-      padding:22px;
-      box‑shadow:0 2px 10px rgba(0,0,0,0.08);
-      transition: 0.25s ease;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box‑shadow:0 6px 18px rgba(0,0,0,0.12);
-    }
-    .card a {
-      font‑size:17px;
-      font‑weight:500;
-      color:#2563eb;
-      text‑decoration:none;
-      display:block;
-      margin‑bottom:8px;
-    }
-    .card .desc {
-      font‑size:13px;
-      color:#666;
-      line‑height:1.5;
-    }
-    footer {
-      margin‑top:60px;
-      text‑align:center;
-      color:#888;
-      font‑size:14px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>前端实践 · 作业集合 · 20251060233</title>
+<meta name="description" content="前端课堂作业导航集合，涵盖基础页面、工具应用、数据可视化、三维场景与综合期末项目。">
+<style>
+  :root{
+    --bg:#0f1226;
+    --bg2:#171a35;
+    --card:#1e2244;
+    --card2:#252a52;
+    --line:rgba(255,255,255,.08);
+    --text:#eef0ff;
+    --muted:#9aa0c8;
+    --accent:#6ea8ff;
+    --accent2:#a78bff;
+    --tag-bg:rgba(110,168,255,.14);
+    --tag-fg:#bcd4ff;
+    --ok:#4ade80;
+    --warn:#fbbf24;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:radial-gradient(1200px 600px at 80% -10%,#2a1f55 0%,transparent 55%),
+               radial-gradient(900px 500px at -10% 10%,#102a55 0%,transparent 50%),
+               var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    line-height:1.6;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:36px 22px 80px}
+
+  /* Hero */
+  .hero{padding:42px 0 26px;text-align:center}
+  .hero .badge{
+    display:inline-block;font-size:12px;letter-spacing:.18em;color:var(--accent);
+    border:1px solid var(--line);background:rgba(110,168,255,.08);
+    padding:6px 14px;border-radius:999px;text-transform:uppercase;margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:.5px;
+    background:linear-gradient(90deg,#a7c4ff,#c7a6ff,#7ed1ff);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p{margin-top:12px;color:var(--muted);font-size:15px}
+  .hero .meta{margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .hero .meta a,.hero .meta span{
+    font-size:13px;color:var(--text);text-decoration:none;
+    border:1px solid var(--line);background:rgba(255,255,255,.04);
+    padding:8px 14px;border-radius:8px;display:inline-flex;align-items:center;gap:6px;
+  }
+  .hero .meta a:hover{border-color:var(--accent);color:#fff}
+  .hero .meta svg{width:14px;height:14px}
+
+  /* Pages hint */
+  .pages-hint{
+    margin:22px auto 0;max-width:760px;display:flex;gap:12px;align-items:flex-start;
+    background:linear-gradient(180deg,rgba(74,222,128,.10),rgba(74,222,128,.03));
+    border:1px solid rgba(74,222,128,.25);border-radius:12px;padding:14px 16px;
+    font-size:13px;color:#cdebda;
+  }
+  .pages-hint svg{width:18px;height:18px;flex:0 0 18px;margin-top:1px;color:var(--ok)}
+  .pages-hint code{background:rgba(0,0,0,.3);padding:2px 6px;border-radius:4px;color:#fff}
+
+  /* Nav */
+  .nav{
+    position:sticky;top:0;z-index:10;backdrop-filter:blur(10px);
+    background:rgba(15,18,38,.78);border-bottom:1px solid var(--line);
+    margin:22px -22px 30px;padding:12px 22px;
+  }
+  .nav .inner{max-width:1136px;margin:0 auto;display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+  .nav a{
+    font-size:13px;color:var(--muted);text-decoration:none;padding:6px 12px;
+    border-radius:999px;transition:.2s;
+  }
+  .nav a:hover{color:#fff;background:rgba(255,255,255,.06)}
+
+  /* Section */
+  section{margin:42px 0 0}
+  .sec-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+  .sec-head .num{
+    font-size:13px;color:var(--accent);font-weight:700;
+    border:1px solid var(--accent);border-radius:6px;padding:2px 8px;
+  }
+  .sec-head h2{font-size:20px;font-weight:600}
+  .sec-head .sub{color:var(--muted);font-size:13px;margin-left:8px}
+
+  /* Grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+  .card{
+    background:linear-gradient(180deg,var(--card),var(--card2));
+    border:1px solid var(--line);border-radius:14px;padding:18px;
+    display:flex;flex-direction:column;gap:10px;transition:.22s ease;position:relative;overflow:hidden;
+  }
+  .card::before{content:"";position:absolute;inset:0;background:radial-gradient(400px 200px at 100% 0,rgba(167,139,255,.10),transparent 60%);opacity:0;transition:.22s}
+  .card:hover{transform:translateY(-4px);border-color:rgba(110,168,255,.5);box-shadow:0 12px 30px rgba(0,0,0,.35)}
+  .card:hover::before{opacity:1}
+  .card .top{display:flex;align-items:center;gap:10px}
+  .card .ico{
+    width:38px;height:38px;flex:0 0 38px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    background:rgba(110,168,255,.15);color:var(--accent);
+  }
+  .card .ico svg{width:20px;height:20px}
+  .card h3{font-size:16px;font-weight:600;color:#fff;flex:1;min-width:0}
+  .card .dir{
+    font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+    font-size:12px;color:var(--muted);
+    background:rgba(0,0,0,.22);padding:2px 8px;border-radius:6px;display:inline-block;
+  }
+  .card .desc{font-size:13.5px;color:var(--muted);min-height:40px}
+  .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{font-size:11.5px;color:var(--tag-fg);background:var(--tag-bg);padding:3px 8px;border-radius:999px}
+  .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+  .btn{
+    font-size:13px;color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:6px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    padding:8px 14px;border-radius:8px;font-weight:500;transition:.2s;
+  }
+  .btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+  .btn svg{width:14px;height:14px}
+  .btn.sub{
+    background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--text);
+    padding:7px 12px;
+  }
+  .btn.sub:hover{border-color:var(--accent);color:#fff}
+
+  footer{margin-top:60px;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:24px}
+  footer a{color:var(--accent);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+
+  @media(max-width:560px){
+    .wrap{padding:24px 14px 60px}
+    .hero h1{font-size:26px}
+    .nav{margin:18px -14px 24px}
+  }
+</style>
 </head>
 <body>
-  <h1>前端实践作业集合</h1>
-  <div class="card‑list">
+<div class="wrap">
 
-    <div class="card">
-      <a href="calt‑tool/">calt‑tool</a>
-      <div class="desc">添加localStorage持久化</div>
+  <!-- Hero -->
+  <header class="hero">
+    <span class="badge">Frontend Practice · 2025-2026</span>
+    <h1>前端课堂作业集合</h1>
+    <p>14 个独立作业 · 涵盖基础页面、工具应用、数据可视化、三维场景与综合期末项目</p>
+    <div class="meta">
+      <a href="https://github.com/20251060233/frontend-practice" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.73.6-3.31-1.32-3.31-1.32-.45-1.13-1.1-1.43-1.1-1.43-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85 0 1.34-.01 2.42-.01 2.75 0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub 仓库
+      </a>
+      <span>学号 · 20251060233</span>
+      <span>作者 · 吴志贤</span>
     </div>
-
-    <div class="card">
-      <a href="club‑apply/">club‑apply</a>
-      <div class="desc">添加外部CSS样式</div>
+    <div class="pages-hint">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <div>
+        本页已作为 <strong>GitHub Pages</strong> 站点入口。在仓库 <code>Settings → Pages → Source</code> 选择 <code>Deploy from a branch</code> → <code>main</code> / <code>/(root)</code> 即可访问 <code>https://20251060233.github.io/frontend-practice/</code>
+      </div>
     </div>
+  </header>
 
-    <div class="card">
-      <a href="courses/">courses</a>
-      <div class="desc">媒体查询，响应式专题页</div>
+  <!-- Sticky Nav -->
+  <nav class="nav">
+    <div class="inner">
+      <a href="#basic">基础页面</a>
+      <a href="#tools">工具应用</a>
+      <a href="#dash">数据看板</a>
+      <a href="#three">三维场景</a>
+      <a href="#final">综合期末</a>
     </div>
+  </nav>
 
-    <div class="card">
-      <a href="dashboard/">dashboard</a>
-      <div class="desc">Chart.js数据看板自适应</div>
+  <!-- 基础页面 -->
+  <section id="basic">
+    <div class="sec-head">
+      <span class="num">01</span>
+      <h2>基础页面练习</h2>
+      <span class="sub">5 个 · HTML/CSS 布局、响应式、表单与个人主页</span>
     </div>
+    <div class="grid">
 
-    <div class="card">
-      <a href="feed‑back‑form/">feed‑back‑form</a>
-      <div class="desc">反馈页面基础样式</div>
+      <div class="card">
+        <div class="top">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+          <h3>个人主页</h3>
+          <span class="dir">homepage/</span>
+        </div>
+        <p class="desc">个人主页与家乡介绍页，含头像、图文介绍与子页面。</p>
+        <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">图文布局</span></div>
+        <div class="links">
+          <a class="btn" href="homepage/index.html">进入主页</a>
+          <a class="btn sub" href="homepage/chuxiong.html">我的家乡·楚雄</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5"/><path d="M8 21H3v-5"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg></div>
+          <h3>学生社团报名表</h3>
+          <span class="dir">club-apply/</span>
+        </div>
+        <p class="desc">社团报名登记表，引入外部 CSS 完成表单排版与样式。</p>
+        <div class="tags"><span class="tag">HTML 表单</span><span class="tag">外部 CSS</span></div>
+        <div class="links"><a class="btn" href="club-apply/index.html">打开页面</a></div>
+      </div>
+
+      <div class="card">
+        <div class="top">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h3>课程反馈表</h3>
+          <span class="dir">feed-back-form/</span>
+        </div>
+        <p class="desc">课程意见反馈页面，基础表单元素与样式练习。</p>
+        <div class="tags"><span class="tag">HTML 表单</span><span class="tag">CSS</span></div>
+        <div class="links"><a class="btn" href="feed-back-form/index.html">打开页面</a></div>
+      </div>
+
+      <div class="card">
+        <div class="top">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <h3>舌尖上的昆明</h3>
+          <span class="dir">courses/</span>
+        </div>
+        <p class="desc">响应式专题页，过桥米线、汽锅鸡等昆明美食卡片布局。</p>
+        <div class="tags"><span class="tag">媒体查询</span><span class="tag">响应式</span><span class="tag">Grid</span></div>
+        <div class="links"><a class="btn" href="courses/courses.html">打开页面</a></div>
+      </div>
+
+      <div class="card">
+        <div class="top">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+          <h3>昆明美食地图</h3>
+          <span class="dir">kunmingmeishi/</span>
+        </div>
+        <p class="desc">使用 Flexbox 构建导航与美食卡片页面结构。</p>
+        <div class="tags"><span class="tag">Flex 布局</span><span class="tag">导航</span></div>
+        <div class="links"><a class="btn" href="kunmingmeishi/kunming.html">打开页面</a></div>
+      </div>
+
     </div>
+  </section>
 
-    <div class="card">
-      <a href="homepage/">homepage</a>
-      <div class="desc">主页练习</div>
+  <!-- 工具应用 -->
+  <section id="tools">
+    <div class="sec-head">
+      <span class="num">02</span>
+      <h2>工具与应用</h2>
+      <span class="sub">4 个 · JS 交互、数据持久化、表单管理</span>
     </div>
+    <div class="grid">
 
-    <div class="card">
-      <a href="kunmingmeishi/">kunmingmeishi</a>
-      <div class="desc">flex导航页面结构</div>
+      <div class="card">
+        <div class="top">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <h3>绩点计算工具</h3>
+          <span class="dir">calt-tool/</span>
+        </div>
+        <p class="desc">输入课程成绩与学分，实时计算平均绩点，使用 localStorage 持久化数据。</p>
+        <div class="tags"><span class="tag">JavaScript</span><span class="tag">localStorage</span><span class="tag">计算</span></div>
+        <div class="links"><a class="btn" href="calt-tool/index.html">打开工具</a></div>
+      </div>
+
+      <div class="card">
+        <div class="top">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <h3>任务清单</h3>
+          <span class="dir">todo-app/</span>
+        </div>
+        <p class="desc">待办事项应用，增删改查与完成状态切换，localStorage 持久化保存。</p>
+        <div class="tags"><span class="tag">JavaScript</span><span class="tag">localStorage</span><span class="tag">CRUD</span></div>
+        <div class="links"><a class="btn" href="todo-app/index.html">打开应用</a></div>
+      </div>
+
+      <div class="card">
+        <div class="top">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+          <h3>图书收藏管理</h3>
+          <span class="dir">manager-app/</span>
+        </div>
+        <p class="desc">图书收藏应用，支持添加、删除与列表展示，数据本地保存。</p>
+        <div class="tags"><span class="tag">JavaScript</span><span class="tag">DOM</span><span class="tag">列表管理</span></div>
+        <div class="links"><a class="btn" href="manager-app/index.html">打开应用</a></div>
+      </div>
+
+      <div class="card">
+        <div class="top">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg></div>
+          <h3>成绩统计</h3>
+          <span class="dir">score-stat/</span>
+        </div>
+        <p class="desc">课程绩点数据统计展示，按学期分类汇总与可视化。</p>
+        <div class="tags"><span class="tag">JavaScript</span><span class="tag">数据统计</span></div>
+        <div class="links"><a class="btn" href="score-stat/index.html">打开页面</a></div>
+      </div>
+
     </div>
+  </section>
 
-    <div class="card">
-      <a href="manager‑app/">manager‑app</a>
-      <div class="desc">图书管理应用</div>
+  <!-- 数据看板 -->
+  <section id="dash">
+    <div class="sec-head">
+      <span class="num">03</span>
+      <h2>数据可视化看板</h2>
+      <span class="sub">2 个 · ECharts / Chart.js + jQuery + Bootstrap</span>
     </div>
+    <div class="grid">
 
-    <div class="card">
-      <a href="my‑dashboard/">my‑dashboard</a>
-      <div class="desc">个人数据看板</div>
+      <div class="card">
+        <div class="top">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><rect x="7" y="10" width="3" height="8"/><rect x="13" y="6" width="3" height="12"/></svg></div>
+          <h3>图书馆数据看板</h3>
+          <span class="dir">dashboard/</span>
+        </div>
+        <p class="desc">基于 Chart.js 与 ECharts 的图书馆借阅数据可视化，自适应布局，jQuery 加载 JSON 数据。</p>
+        <div class="tags"><span class="tag">Chart.js</span><span class="tag">ECharts</span><span class="tag">jQuery</span><span class="tag">Bootstrap</span></div>
+        <div class="links"><a class="btn" href="dashboard/index.html">打开看板</a></div>
+      </div>
+
+      <div class="card">
+        <div class="top">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>校园生活数据看板</h3>
+          <span class="dir">my-dashboard/</span>
+        </div>
+        <p class="desc">个人校园生活数据看板，原生 JS 渲染卡片，加载 campus.json 展示统计信息。</p>
+        <div class="tags"><span class="tag">JavaScript</span><span class="tag">fetch</span><span class="tag">JSON</span></div>
+        <div class="links"><a class="btn" href="my-dashboard/index.html">打开看板</a></div>
+      </div>
+
     </div>
+  </section>
 
-    <div class="card">
-      <a href="score‑stat/">score‑stat</a>
-      <div class="desc">课程绩点数据统计</div>
+  <!-- 三维 -->
+  <section id="three">
+    <div class="sec-head">
+      <span class="num">04</span>
+      <h2>三维场景</h2>
+      <span class="sub">1 个 · Three.js + A-Frame 双引擎对比</span>
     </div>
+    <div class="grid">
 
-    <div class="card">
-      <a href="three‑d/">three‑d</a>
-      <div class="desc">Three.js校园3D地标</div>
+      <div class="card">
+        <div class="top">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 5-9 5-9-5 9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 17l9 5 9-5"/></svg></div>
+          <h3>校园地标 · Three.js</h3>
+          <span class="dir">three-d/</span>
+        </div>
+        <p class="desc">教学楼、图书馆、钟楼与云朵的 Three.js 三维校园场景，支持旋转缩放平移；附 A-Frame 版校园地标。</p>
+        <div class="tags"><span class="tag">Three.js</span><span class="tag">OrbitControls</span><span class="tag">A-Frame</span><span class="tag">WebGL</span></div>
+        <div class="links">
+          <a class="btn" href="three-d/index.html">Three.js 版</a>
+          <a class="btn sub" href="three-d/campus.html">A-Frame 版</a>
+        </div>
+      </div>
+
     </div>
+  </section>
 
-    <div class="card">
-      <a href="todo‑app/">todo‑app</a>
-      <div class="desc">待办，localStorage持久化</div>
+  <!-- 综合期末 -->
+  <section id="final">
+    <div class="sec-head">
+      <span class="num">05</span>
+      <h2>综合期末项目</h2>
+      <span class="sub">2 个 · Bootstrap + jQuery + ECharts + Three.js 整合应用</span>
     </div>
+    <div class="grid">
 
-    <div class="card">
-      <a href="期末作业/">期末作业</a>
-      <div class="desc">迷你校园数据中心</div>
+      <div class="card">
+        <div class="top">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01"/></svg></div>
+          <h3>校园食堂信息中心</h3>
+          <span class="dir">期末作业/</span>
+        </div>
+        <p class="desc">三页一体的食堂信息与数据展示中心：首页概览 + 食堂查询 + 数据统计 + Three.js 餐厅三维场景。</p>
+        <div class="tags"><span class="tag">Bootstrap</span><span class="tag">jQuery</span><span class="tag">ECharts</span><span class="tag">Three.js</span></div>
+        <div class="links">
+          <a class="btn" href="期末作业/index.html">进入首页</a>
+          <a class="btn sub" href="期末作业/dining.html">食堂查询</a>
+          <a class="btn sub" href="期末作业/stats.html">数据统计</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+          <h3>迷你校园信息中心</h3>
+          <span class="dir">迷你版校园信息中心/</span>
+        </div>
+        <p class="desc">校园公共信息展示中心精简版，自习室楼层筛选 + ECharts 使用量柱状图 + 三维地标。</p>
+        <div class="tags"><span class="tag">Bootstrap</span><span class="tag">ECharts</span><span class="tag">Three.js</span></div>
+        <div class="links"><a class="btn" href="迷你版校园信息中心/index.html">进入项目</a></div>
+      </div>
+
     </div>
+  </section>
 
-    <div class="card">
-      <a href="迷你版校园信息中心/">迷你版校园信息中心</a>
-      <div class="desc">迷你校园数据中心完整项目</div>
-    </div>
+  <footer>
+    <p>共 14 个作业 · 4 个子页面 · 通过 GitHub Pages 部署</p>
+    <p style="margin-top:6px">© 2025-2026 吴志贤 · <a href="https://github.com/20251060233/frontend-practice" target="_blank" rel="noopener">github.com/20251060233/frontend-practice</a></p>
+  </footer>
 
-  </div>
-  <footer>GitHub‑Pages 作业导航页</footer>
+</div>
 </body>
 </html>
