@@ -96,7 +96,7 @@
     border:1px solid var(--line);border-radius:14px;padding:18px;
     display:flex;flex-direction:column;gap:10px;transition:.22s ease;position:relative;overflow:hidden;
   }
-  .card::before{content:"";position:absolute;inset:0;background:radial-gradient(400px 200px at 100% 0,rgba(167,139,255,.10),transparent 60%);opacity:0;transition:.22s}
+  .card::before{content:"";position:absolute;inset:0;background:radial-gradient(400px 200px at 100% 0,rgba(167,139,255,.10),transparent 60%);opacity:0;transition:.22s;pointer-events:none}
   .card:hover{transform:translateY(-4px);border-color:rgba(110,168,255,.5);box-shadow:0 12px 30px rgba(0,0,0,.35)}
   .card:hover::before{opacity:1}
   .card .top{display:flex;align-items:center;gap:10px}
